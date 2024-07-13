@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Keyword Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid d-flex justify-content-start">
+            <a class="navbar-brand" href="/">All Search API</a>
+            <a class="navbar-brand" href="/reddit/reddit_search">Reddit</a>
+            <a class="navbar-brand" href="/twitter/twitter_search">Twitter</a>
+            <a class="navbar-brand" href="/youtube/youtube_search">YouTube</a>
+            <a class="navbar-brand" href="/">Analysis (coming)</a>
+        </div>
+    </nav>
+
+    <h1>All Users</h1>
+    <table style="width: 100%;">
+        <tr>
+            <th style="width: 33.33%;">YouTube</th>
+            <th style="width: 33.33%;">Reddit</th>
+            <th style="width: 33.33%;">Twitter</th>
+        </tr>
+        {% set user1_len = user1|length %}
+        {% set user2_len = user2|length %}
+        {% set user3_len = user3|length %}
+        {% set max_len = user1_len if user1_len > user2_len else user2_len %}
+        {% set max_len = max_len if max_len > user3_len else user3_len %}
+        {% for i in range(max_len) %}
+        <tr>
+            <td>
+                {% if i < user1_len %}
+                    <li>{{ user1[i] }}</li>
+                {% endif %}
+            </td>
+            <td>
+                {% if i < user2_len %}
+                    <li>{{ user2[i] }}</li>
+                {% endif %}
+            </td>
+            <td>
+                {% if i < user3_len %}
+                    <li>{{ user3[i] }}</li>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Keyword Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid d-flex justify-content-start">
+            <a class="navbar-brand" href="/">Twitter Search API</a>
+            <a class="navbar-brand" href="/reddit/reddit_search">Reddit</a>
+            <a class="navbar-brand" href="/youtube/youtube_search">YouTube</a>
+            <a class="navbar-brand" href="/">Analysis (coming)</a>
+        </div>
+    </nav>
+
+    <h1>Twitter Users</h1>
+    <ul>
+        {% for user in users %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
